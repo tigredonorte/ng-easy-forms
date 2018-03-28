@@ -1,0 +1,29 @@
+import { Routes } from '@angular/router';
+
+import { EmailFieldDemoComponent } from './../components/email-field-demo/email-field-demo.component';
+import { PasswordFieldDemoComponent } from './../components/password-field-demo/password-field-demo.component';
+import { ToggleFieldDemoComponent } from './../components/toggle-field-demo/toggle-field-demo.component';
+import { DemoAppComponent, HomeComponent } from './demo-app.component';
+
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+export const DEMO_APP_ROUTES: Routes = [
+  {
+    path: '',
+    component: DemoAppComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'toggle-field', component: ToggleFieldDemoComponent },
+      { path: 'password-field', component: PasswordFieldDemoComponent },
+      { path: 'email-field', component: EmailFieldDemoComponent }
+    ]
+  }
+];
+
+export const ALL_ROUTES: Routes = [{ path: '', component: DemoAppComponent, children: DEMO_APP_ROUTES }];

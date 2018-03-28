@@ -1,0 +1,4 @@
+<mat-slide-toggle matInput [formControl]="field" class="example-margin">
+  {{placeholder}}
+</mat-slide-toggle>
+<mat-error *ngIf="field.invalid">{{error}}</mat-error>
