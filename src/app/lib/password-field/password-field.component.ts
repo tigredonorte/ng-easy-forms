@@ -71,7 +71,6 @@ export class PasswordFieldComponent extends BaseFieldComponet implements OnInit,
   getValidators() {
     const validators = [Validators.required];
     const data = this.getPasswordData();
-    console.log(data);
     validators.push(Validators.minLength(data.length));
     validators.push(Validators.pattern(data.pattern.regex));
     return validators;
