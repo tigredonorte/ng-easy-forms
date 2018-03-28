@@ -1,10 +1,10 @@
 import { keys } from 'ramda';
-import { Component, forwardRef, OnInit, Input } from '@angular/core';
+import { Component, forwardRef, OnInit, Input, OnChanges } from '@angular/core';
 import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { BaseFieldComponet } from '../reusable/base-field.component';
 
 const passwordConfig = {
-  min: { length: 6, pattern: { regex: '' } },
+  low: { length: 6, pattern: { regex: '' } },
   medium: {
     length: 8,
     pattern: {
@@ -29,13 +29,17 @@ const passwordConfig = {
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => PasswordFieldComponent), multi: true }
   ]
 })
-export class PasswordFieldComponent extends BaseFieldComponet implements OnInit {
+export class PasswordFieldComponent extends BaseFieldComponet implements OnInit, OnChanges {
   @Input() passwordStrenght = 'high';
   private min = 6;
   private passwordData = passwordConfig;
   constructor() {
     super();
     this.required = true;
+  }
+
+  ngOnChanges(data) {
+    super.ngOnChanges(data);
   }
 
   getErrorMessage() {
@@ -67,6 +71,7 @@ export class PasswordFieldComponent extends BaseFieldComponet implements OnInit 
   getValidators() {
     const validators = [Validators.required];
     const data = this.getPasswordData();
+    console.log(data);
     validators.push(Validators.minLength(data.length));
     validators.push(Validators.pattern(data.pattern.regex));
     return validators;

@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-title>Email Field ngModel</mat-card-title>
+  <mat-card-content>
+    <app-email-field [placeholder]="placeholder" [(ngModel)]="model"></app-email-field>
+    <div class='result' *ngIf="model">
+      {{model}}
+    </div>
+    <pre><code> {{example1}}</code></pre>
+  </mat-card-content>
+
+</mat-card>
+<mat-card>
+  <mat-card-title>Email Field reactiveForms</mat-card-title>
+  <mat-card-content>
+    <app-email-field [placeholder]="placeholder" [formControl]="control"></app-email-field>
+    <div class='result' *ngIf="control.value">
+      {{control.value}}
+    </div>
+    <pre><code> {{example2}}</code></pre>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title>Import</mat-card-title>
+  <mat-card-content>
+    <pre><code>
+      {{"
+  import { EmailFieldModule } from 'ng-easy-forms/email-field';
+  @NgModule({
+    imports: [EmailFieldModule],
+  })
+  class MyComponentModule {}"
+      }}
+    </code></pre>
+  </mat-card-content>
+</mat-card>

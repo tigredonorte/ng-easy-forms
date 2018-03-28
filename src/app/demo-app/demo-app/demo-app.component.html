@@ -1,4 +1,4 @@
-<!-- <mat-sidenav-container class="demo-root" fullscreen>
+<mat-sidenav-container class="demo-root" fullscreen>
   <mat-sidenav #start>
     <mat-nav-list>
       <a *ngFor="let navItem of navItems"
@@ -10,15 +10,6 @@
          [routerLink]="[navItem.route]">
         {{navItem.name}}
       </a>
-
-      <hr>
-
-      <a mat-list-item
-         tabindex="-1"
-         (click)="start.close()"
-         [routerLink]="['/baseline']">
-        Baseline
-      </a>
     </mat-nav-list>
     <button mat-button tabindex="-1" (click)="start.close()">CLOSE</button>
   </mat-sidenav>
@@ -28,14 +19,10 @@
         <mat-icon>menu</mat-icon>
       </button>
       <div class="demo-toolbar">
-        <h1>Angular Material Demos</h1>
+        <h1>{{title}}</h1>
         <div>
           <button mat-icon-button (click)="toggleFullscreen()" title="Toggle fullscreen">
             <mat-icon>fullscreen</mat-icon>
-          </button>
-          <button mat-button (click)="toggleTheme()">{{dark ? 'Light' : 'Dark'}} theme</button>
-          <button mat-button (click)="root.dir = (root.dir == 'rtl' ? 'ltr' : 'rtl')" title="Toggle between RTL and LTR">
-            {{root.dir.toUpperCase()}}
           </button>
         </div>
       </div>
@@ -45,5 +32,5 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-</mat-sidenav-container> -->
-fooooooo
+</mat-sidenav-container>
+

@@ -39,6 +39,7 @@ export abstract class BaseFieldComponet implements OnInit, OnChanges, OnDestroy 
 
   ngOnChanges(data) {
     this.validateFn = this.getValidateFn();
+    this.updateValidators();
   }
 
   ngOnDestroy() {

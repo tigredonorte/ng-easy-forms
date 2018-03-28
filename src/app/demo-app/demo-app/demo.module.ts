@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 
-import { DemoEasyFormsModule } from '../demo-easy-forms.module';
+import { DemoEasyFormsModule } from '../components/demo-easy-forms.module';
 import { DemoAppComponent, HomeComponent } from './demo-app.component';
 import { DEMO_APP_ROUTES } from './routes';
 
@@ -22,7 +24,6 @@ import { DEMO_APP_ROUTES } from './routes';
 // import { MatDividerModule } from '@angular/material/divider';
 // import { MatExpansionModule } from '@angular/material/expansion';
 // import { MatGridListModule } from '@angular/material/grid-list';
-// import { MatListModule } from '@angular/material/list';
 // import { MatMenuModule } from '@angular/material/menu';
 // import { MatNativeDateModule } from '@angular/material/core';
 // import { MatPaginatorModule } from '@angular/material/paginator';
@@ -50,9 +51,8 @@ import { DEMO_APP_ROUTES } from './routes';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatToolbarModule
-    // TableDemoModule,
-    // TreeDemoModule
+    MatToolbarModule,
+    MatListModule
   ],
   declarations: [DemoAppComponent, HomeComponent],
   providers: [{ provide: OverlayContainer, useClass: FullscreenOverlayContainer }],
