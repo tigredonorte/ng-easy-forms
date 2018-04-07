@@ -1,7 +1,8 @@
-import { keys } from 'ramda';
-import { Component, forwardRef, OnInit, Input } from '@angular/core';
-import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+import { Component, forwardRef, OnInit } from '@angular/core';
+import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn } from '@angular/forms';
+
 import { BaseFieldComponet } from '../reusable/base-field.component';
+
 @Component({
   selector: 'app-toggle-field',
   templateUrl: './toggle-field.component.html',
@@ -16,14 +17,17 @@ export class ToggleFieldComponent extends BaseFieldComponet implements OnInit {
     super();
   }
 
-  getErrorMessage() { return ''; }
+  getErrorMessage() {
+    return '';
+  }
 
-  getValidateFn() {
+  getValidateFn(): ValidatorFn {
     return (c: FormControl) => {
       return null;
     };
   }
 
-  getValidators() { return []; }
-
+  getValidators(): ValidatorFn | ValidatorFn[] {
+    return [];
+  }
 }

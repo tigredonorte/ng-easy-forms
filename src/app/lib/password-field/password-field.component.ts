@@ -1,6 +1,7 @@
+import { Component, forwardRef, Input, OnChanges, OnInit } from '@angular/core';
+import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn, Validators } from '@angular/forms';
 import { keys } from 'ramda';
-import { Component, forwardRef, OnInit, Input, OnChanges } from '@angular/core';
-import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+
 import { BaseFieldComponet } from '../reusable/base-field.component';
 
 const passwordConfig = {
@@ -42,7 +43,7 @@ export class PasswordFieldComponent extends BaseFieldComponet implements OnInit,
     super.ngOnChanges(data);
   }
 
-  getErrorMessage() {
+  getErrorMessage(): string {
     if (this.field.hasError('required')) {
       return 'Você deve digitar uma senha';
     }
@@ -62,18 +63,18 @@ export class PasswordFieldComponent extends BaseFieldComponet implements OnInit,
     return '';
   }
 
-  getValidateFn() {
+  getValidateFn(): ValidatorFn {
     return (c: FormControl) => {
       return null;
     };
   }
 
-  getValidators() {
-    const validators = [Validators.required];
+  getValidators(): ValidatorFn | ValidatorFn[] {
+    const v = [Validators.required];
     const data = this.getPasswordData();
-    validators.push(Validators.minLength(data.length));
-    validators.push(Validators.pattern(data.pattern.regex));
-    return validators;
+    v.push(Validators.minLength(data.length));
+    v.push(Validators.pattern(data.pattern.regex));
+    return v;
   }
 
   getPasswordData() {
