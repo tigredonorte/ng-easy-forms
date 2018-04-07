@@ -1,26 +1,10 @@
-import { Component, forwardRef, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn, Validators } from '@angular/forms';
 import { keys } from 'ramda';
 
 import { BaseFieldComponet } from '../reusable/base-field.component';
+import { PasswordConfigInterface, PasswordConfigType, passwordConfig } from './password.model';
 
-const passwordConfig = {
-  low: { length: 6, pattern: { regex: '' } },
-  medium: {
-    length: 8,
-    pattern: {
-      regex: /(?=.*[0-9])(?=.*[a-z])/g,
-      msg: 'A senha deve conter números e letras'
-    }
-  },
-  high: {
-    length: 10,
-    pattern: {
-      regex: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*#?&])[a-zA-Zd]/g,
-      msg: 'A senha deve conter letras maíusculas e minúsculas, números e caracteres especiais'
-    }
-  }
-};
 @Component({
   selector: 'app-password-field',
   templateUrl: './password-field.component.html',
@@ -33,13 +17,13 @@ const passwordConfig = {
 export class PasswordFieldComponent extends BaseFieldComponet implements OnInit, OnChanges {
   @Input() passwordStrenght = 'high';
   private min = 6;
-  private passwordData = passwordConfig;
+  private passwordData: PasswordConfigInterface = passwordConfig;
   constructor() {
     super();
     this.required = true;
   }
 
-  ngOnChanges(data) {
+  ngOnChanges(data: SimpleChanges) {
     super.ngOnChanges(data);
   }
 
@@ -77,7 +61,7 @@ export class PasswordFieldComponent extends BaseFieldComponet implements OnInit,
     return v;
   }
 
-  getPasswordData() {
+  getPasswordData(): PasswordConfigType {
     return this.passwordData[this.passwordStrenght] ? this.passwordData[this.passwordStrenght] : this.passwordData.high;
   }
 }
