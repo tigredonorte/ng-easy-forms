@@ -6,7 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 
-import { EmailFieldModule, PasswordFieldModule, ToggleFieldModule } from '../../lib';
+import { EmailFieldModule, PasswordFieldModule, ToggleFieldModule } from '../lib';
 import { EmailFieldDemoComponent } from './../components/email-field-demo/email-field-demo.component';
 import { PasswordFieldDemoComponent } from './../components/password-field-demo/password-field-demo.component';
 import { ToggleFieldDemoComponent } from './../components/toggle-field-demo/toggle-field-demo.component';
