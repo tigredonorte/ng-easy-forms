@@ -19,9 +19,9 @@ export const DEMO_APP_ROUTES: Routes = [
     component: DemoAppComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'toggle-field', component: ToggleFieldDemoComponent },
+      { path: 'email-field', component: EmailFieldDemoComponent },
       { path: 'password-field', component: PasswordFieldDemoComponent },
-      { path: 'email-field', component: EmailFieldDemoComponent }
+      { path: 'toggle-field', component: ToggleFieldDemoComponent },
     ]
   }
 ];

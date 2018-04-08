@@ -1,5 +1,5 @@
-import { Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { FormControl, ValidatorFn } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
 export abstract class BaseFieldComponet implements OnInit, OnChanges, OnDestroy {
@@ -37,7 +37,7 @@ export abstract class BaseFieldComponet implements OnInit, OnChanges, OnDestroy 
     });
   }
 
-  ngOnChanges(data) {
+  ngOnChanges(data: SimpleChanges) {
     this.validateFn = this.getValidateFn();
     this.updateValidators();
   }
@@ -57,9 +57,9 @@ export abstract class BaseFieldComponet implements OnInit, OnChanges, OnDestroy 
     this.field.updateValueAndValidity();
   }
   // abstract methods
-  abstract getValidateFn();
-  abstract getValidators();
-  abstract getErrorMessage();
+  abstract getValidateFn(): ValidatorFn;
+  abstract getValidators(): ValidatorFn | ValidatorFn[];
+  abstract getErrorMessage(): string;
 
   // mandatory for reactive components
   touchedChange: any = () => {};
