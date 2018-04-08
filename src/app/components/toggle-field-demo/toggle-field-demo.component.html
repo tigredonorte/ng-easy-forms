@@ -1,3 +1,21 @@
-<p>
-  toggle-field-demo works!
-</p>
+<mat-card>
+  <mat-card-title>{{fieldName}} Field</mat-card-title>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="NgModel">
+        <h1>ngModel Example</h1>
+        <app-toggle-field [formControl]="control" name='remember' [placeholder]="placeholder" [(ngModel)]="model"></app-toggle-field>
+        <div class='result' *ngIf="model">
+          {{model}}
+        </div>
+      </mat-tab>
+      <mat-tab label="ReactiveModule">
+        <h1>Reactive Module Example</h1>
+        <app-toggle-field [formControl]="control" name='remember' [placeholder]="placeholder"></app-toggle-field>
+        <div class='result' *ngIf="control.value">
+          {{control.value}}
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
