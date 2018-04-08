@@ -21,10 +21,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cleardown": "rimraf build lib",
+    "cleardown": "gulp clean",
     "inline-build-templates": "gulp inline-build-templates",
     "ngc-build": "ngc -p ./tsconfig.lib.json",
-    "prepare": "npm run cleardown && npm run inline-build-templates && npm run ngc-build && gulp push-version"
+    "prepare": "npm run inline-build-templates && npm run ngc-build",
+    "push": "gulp push-version"
   },
   "repository": {
     "type": "git",
