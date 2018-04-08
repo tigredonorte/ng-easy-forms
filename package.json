@@ -22,7 +22,7 @@
     "ngc-build": "ngc -p ./tsconfig.lib.json",
     "prepare": "npm run inline-build-templates && npm run ngc-build",
     "push": "gulp push-version",
-    "send": "npm run prepare && npm run push && npm publish"
+    "send": "npm run prepare && npm run push"
   },
   "repository": {
     "type": "git",
