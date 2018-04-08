@@ -21,7 +21,8 @@ export const DEMO_APP_ROUTES: Routes = [
       { path: '', component: HomeComponent },
       { path: 'toggle-field', component: ToggleFieldDemoComponent },
       { path: 'password-field', component: PasswordFieldDemoComponent },
-      { path: 'email-field', component: EmailFieldDemoComponent }
+      { path: 'email-field', component: EmailFieldDemoComponent },
+      // { path: 'save-button', component: SaveButtonDemoComponent }
     ]
   }
 ];
