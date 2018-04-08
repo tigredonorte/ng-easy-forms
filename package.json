@@ -32,7 +32,7 @@
     "url": "https://github.com/tigredonorte/ng-easy-forms.git"
   },
   "files": [
-    "./lib"
+    "lib"
   ],
   "main": "./lib/ng-easy-forms.module.js",
   "typings": "./lib/ng-easy-forms.module.d.ts",
