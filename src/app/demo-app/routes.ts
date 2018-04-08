@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 
-import { EmailFieldDemoComponent } from './../components/email-field-demo/email-field-demo.component';
-import { PasswordFieldDemoComponent } from './../components/password-field-demo/password-field-demo.component';
-import { ToggleFieldDemoComponent } from './../components/toggle-field-demo/toggle-field-demo.component';
+import { EmailFieldDemoComponent } from '../components/email-field-demo/email-field-demo.component';
+import { PasswordFieldDemoComponent } from '../components/password-field-demo/password-field-demo.component';
+import { SaveButtonDemoComponent } from '../components/save-button-demo/save-button-demo.component';
+import { ToggleFieldDemoComponent } from '../components/toggle-field-demo/toggle-field-demo.component';
 import { DemoAppComponent, HomeComponent } from './demo-app.component';
 
 /**
@@ -22,6 +23,7 @@ export const DEMO_APP_ROUTES: Routes = [
       { path: 'email-field', component: EmailFieldDemoComponent },
       { path: 'password-field', component: PasswordFieldDemoComponent },
       { path: 'toggle-field', component: ToggleFieldDemoComponent },
+      { path: 'save-button', component: SaveButtonDemoComponent }
     ]
   }
 ];
