@@ -1,11 +1,8 @@
 import { ReflectiveInjector } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { LoginStatusService } from '@gorila/core';
-import { UtilsService } from '@gorila/core/utils';
-import { BaseButtonComponent, UpdatingComponent } from '@gorila/shared/components';
-import { TranslateModule } from '@ngx-translate/core';
 
-import { SaveButtonComponent, SaveButtonTitles } from './save-button.component';
+import { SaveButtonTitles } from './save-button.model';
+import { SaveButtonComponent } from './save-button.component';
 
 describe('SaveButtonComponent', () => {
   let component: SaveButtonComponent;
@@ -14,10 +11,8 @@ describe('SaveButtonComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        declarations: [BaseButtonComponent, SaveButtonComponent, UpdatingComponent],
-        imports: [TranslateModule.forRoot()]
+        declarations: [SaveButtonComponent],
       }).compileComponents();
-      UtilsService.injector = ReflectiveInjector.resolveAndCreate([LoginStatusService]);
     })
   );
 
