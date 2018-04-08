@@ -2,11 +2,7 @@
   "name": "ng-easy-forms",
   "version": "0.0.15",
   "license": "MIT",
-  "author": {
-    "name": "Thompson Filgueiras",
-    "email": "thom@thomfilg.com",
-    "url": "http://thomfilg.com"
-  },
+  "author": "Thompson Filgueiras",
   "keywords": [
     "Angular",
     "Angular Forms",
