@@ -6,6 +6,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 
+import { MatInputModule } from '@angular/material/input';
 import { EmailFieldModule, PasswordFieldModule, SaveButtonModule, ToggleFieldModule } from '../lib';
 import { EmailFieldDemoComponent } from './../components/email-field-demo/email-field-demo.component';
 import { PasswordFieldDemoComponent } from './../components/password-field-demo/password-field-demo.component';
@@ -22,6 +23,7 @@ import { SaveButtonDemoComponent } from './save-button-demo/save-button-demo.com
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatInputModule,
     MatSelectModule,
     MatTabsModule,
     MatGridListModule
