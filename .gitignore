@@ -7,6 +7,7 @@
 /out-tsc
 /build
 npm-debug.*
+/lib
 
 # dependencies
 /node_modules

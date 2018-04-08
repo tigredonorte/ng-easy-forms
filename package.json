@@ -27,8 +27,8 @@
   "files": [
     "lib"
   ],
-  "main": "./lib/ng-easy-forms.module.js",
-  "typings": "./lib/ng-easy-forms.module.d.ts",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/tigredonorte/ng-easy-forms.git"
