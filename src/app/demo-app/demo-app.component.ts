@@ -12,7 +12,8 @@ export class DemoAppComponent {
   navItems = [
     { name: 'Email Field', route: '/email-field' },
     { name: 'Password Field', route: '/password-field' },
-    { name: 'Toggle Field', route: '/toggle-field' },
+    { name: 'Save Button', route: '/save-button' },
+    { name: 'Toggle Field', route: '/toggle-field' }
   ];
 
   constructor(private _element: ElementRef, private _overlayContainer: OverlayContainer) {}
