@@ -24,15 +24,15 @@
     "push": "gulp push-version",
     "send": "npm run prepare && npm run push"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tigredonorte/ng-easy-forms.git"
-  },
   "files": [
     "lib"
   ],
   "main": "./lib/ng-easy-forms.module.js",
   "typings": "./lib/ng-easy-forms.module.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tigredonorte/ng-easy-forms.git"
+  },
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",

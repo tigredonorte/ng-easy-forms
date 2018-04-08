@@ -27,17 +27,6 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
-    },
-    {
-      "root": "src/app/lib",
-      "outDir": "publish",
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.json",
-      "prefix": "app",
-      "scripts": []
     }
   ],
   "e2e": {
