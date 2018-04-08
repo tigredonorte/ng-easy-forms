@@ -21,7 +21,8 @@
     "inline-build-templates": "gulp inline-build-templates",
     "ngc-build": "ngc -p ./tsconfig.lib.json",
     "prepare": "npm run inline-build-templates && npm run ngc-build",
-    "push": "gulp push-version"
+    "push": "gulp push-version",
+    "send": "npm run prepare && npm run push && npm publish"
   },
   "repository": {
     "type": "git",
