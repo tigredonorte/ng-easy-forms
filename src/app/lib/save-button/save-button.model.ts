@@ -8,6 +8,7 @@ export interface SaveButtonTranslations {
   error: string;
   saved: string;
   saving: string;
+  [key: string]: string;
 }
 
 export const SaveButtonTitles: SaveButtonTranslations = {
