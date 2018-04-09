@@ -1,20 +1,8 @@
 import { Component, forwardRef } from '@angular/core';
 import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn } from '@angular/forms';
 
-import { BaseFieldComponet, TranslationObject } from '../reusable/base-field.component';
-
-const invalidCpfArray = [
-  '00000000000',
-  '11111111111',
-  '22222222222',
-  '33333333333',
-  '44444444444',
-  '55555555555',
-  '66666666666',
-  '77777777777',
-  '88888888888',
-  '99999999999'
-];
+import { BaseFieldComponet } from '../reusable/base-field.component';
+import { CpfTranslationObject, cpfTranslations, invalidCpfArray } from './cpf-field.model';
 
 @Component({
   selector: 'app-cpf-field',
@@ -32,7 +20,6 @@ export class CpfFieldComponent extends BaseFieldComponet {
   }
 
   getErrorMessage() {
-    console.log(this.field.invalid, this.translations.invalidCpf);
     return this.field.invalid ? this.translations.invalidCpf : '';
   }
 
@@ -95,7 +82,7 @@ export class CpfFieldComponent extends BaseFieldComponet {
     return true;
   }
 
-  getTranslations(): TranslationObject {
-    return { invalidCpf: 'Invalid cpf!' };
+  getTranslations(): CpfTranslationObject {
+    return cpfTranslations;
   }
 }
