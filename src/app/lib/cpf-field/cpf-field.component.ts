@@ -56,7 +56,6 @@ export class CpfFieldComponent extends BaseFieldComponet {
     let soma = 0;
     let resto = 0;
     if (!strCpf || strCpf.length < 11 || invalidCpfArray.indexOf(strCpf) !== -1) {
-      console.log('here');
       return false;
     }
 
@@ -73,7 +72,6 @@ export class CpfFieldComponent extends BaseFieldComponet {
     }
 
     if (resto !== parseInt(strCpf.substring(9, 10), 10)) {
-      console.log('here');
       return false;
     }
 
@@ -91,7 +89,6 @@ export class CpfFieldComponent extends BaseFieldComponet {
     }
 
     if (resto !== parseInt(strCpf.substring(10, 11), 10)) {
-      console.log('here');
       return false;
     }
 
