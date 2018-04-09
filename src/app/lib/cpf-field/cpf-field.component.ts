@@ -1,6 +1,5 @@
 import { Component, forwardRef } from '@angular/core';
 import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn } from '@angular/forms';
-import { concat } from 'ramda';
 
 import { BaseFieldComponet, TranslationObject } from '../reusable/base-field.component';
 
