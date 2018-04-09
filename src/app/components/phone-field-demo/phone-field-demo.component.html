@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-title>PhoneField</mat-card-title>
+  <mat-card-content>
+    <app-phone-field placeholder="Cellphone" [translations]="translations" [(ngModel)]="model" [options]="{phoneType: 'Cellphone'}"></app-phone-field>
+    <div class='result' *ngIf="model">
+      {{model}}
+    </div>
+
+    <hr/>
+    <app-phone-field placeholder="Phone" [translations]="translations" [(ngModel)]="model2" [options]="{phoneType: 'Phone'}"></app-phone-field>
+    <div class='result' *ngIf="model2">
+      {{model2}}
+    </div>
+  </mat-card-content>
+</mat-card>

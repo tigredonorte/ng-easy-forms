@@ -12,6 +12,7 @@ import {
   CpfFieldModule,
   EmailFieldModule,
   PasswordFieldModule,
+  PhoneFieldModule,
   SaveButtonModule,
   ToggleFieldModule
 } from '../lib';
@@ -21,6 +22,7 @@ import { ToggleFieldDemoComponent } from './../components/toggle-field-demo/togg
 import { CepFieldDemoComponent } from './cep-field-demo/cep-field-demo.component';
 import { CpfFieldDemoComponent } from './cpf-field-demo/cpf-field-demo.component';
 import { SaveButtonDemoComponent } from './save-button-demo/save-button-demo.component';
+import { PhoneFieldDemoComponent } from './phone-field-demo/phone-field-demo.component';
 
 @NgModule({
   imports: [
@@ -29,6 +31,7 @@ import { SaveButtonDemoComponent } from './save-button-demo/save-button-demo.com
     CpfFieldModule,
     EmailFieldModule,
     PasswordFieldModule,
+    PhoneFieldModule,
     SaveButtonModule,
     ToggleFieldModule,
     FormsModule,
@@ -45,7 +48,8 @@ import { SaveButtonDemoComponent } from './save-button-demo/save-button-demo.com
     PasswordFieldDemoComponent,
     SaveButtonDemoComponent,
     ToggleFieldDemoComponent,
-    CepFieldDemoComponent
+    CepFieldDemoComponent,
+    PhoneFieldDemoComponent
   ]
 })
 export class DemoEasyFormsModule {}
