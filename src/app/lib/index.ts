@@ -1,3 +1,5 @@
+
+export * from './cpf-field';
 export * from './email-field';
 export * from './ng-easy-forms.module';
 export * from './password-field';

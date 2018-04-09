@@ -31,4 +31,8 @@ export class EmailFieldComponent extends BaseFieldComponet {
   getValidators(): ValidatorFn | ValidatorFn[] {
     return [Validators.required, Validators.email];
   }
+
+  getTranslations() {
+    return {};
+  }
 }

@@ -30,4 +30,8 @@ export class ToggleFieldComponent extends BaseFieldComponet implements OnInit {
   getValidators(): ValidatorFn | ValidatorFn[] {
     return [];
   }
+
+  getTranslations() {
+    return {};
+  }
 }

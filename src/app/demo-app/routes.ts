@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+import { CpfFieldDemoComponent } from '../components/cpf-field-demo/cpf-field-demo.component';
 import { EmailFieldDemoComponent } from '../components/email-field-demo/email-field-demo.component';
 import { PasswordFieldDemoComponent } from '../components/password-field-demo/password-field-demo.component';
 import { SaveButtonDemoComponent } from '../components/save-button-demo/save-button-demo.component';
@@ -20,6 +21,7 @@ export const DEMO_APP_ROUTES: Routes = [
     component: DemoAppComponent,
     children: [
       { path: '', component: HomeComponent },
+      { path: 'cpf-field', component: CpfFieldDemoComponent },
       { path: 'email-field', component: EmailFieldDemoComponent },
       { path: 'password-field', component: PasswordFieldDemoComponent },
       { path: 'toggle-field', component: ToggleFieldDemoComponent },

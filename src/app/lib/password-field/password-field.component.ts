@@ -64,4 +64,8 @@ export class PasswordFieldComponent extends BaseFieldComponet implements OnInit,
   getPasswordData(): PasswordConfigType {
     return this.passwordData[this.passwordStrenght] ? this.passwordData[this.passwordStrenght] : this.passwordData.high;
   }
+
+  getTranslations() {
+    return {};
+  }
 }

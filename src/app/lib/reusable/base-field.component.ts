@@ -1,11 +1,17 @@
 import { Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, ValidatorFn } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
+import { isEmpty } from 'ramda';
 
+export interface TranslationObject {
+  [s: string]: string;
+}
 export abstract class BaseFieldComponet implements OnInit, OnChanges, OnDestroy {
   private fieldSubscription: Subscription = null;
   @Input() placeholder = '';
   @Input() required = false;
+  @Input() options: any = {};
+  @Input() translations: TranslationObject = {};
   error = '';
   field = new FormControl('');
   _value = '';
@@ -29,6 +35,9 @@ export abstract class BaseFieldComponet implements OnInit, OnChanges, OnDestroy 
 
   // angular events
   ngOnInit() {
+    if (isEmpty(this.translations)) {
+      this.translations = this.getTranslations();
+    }
     this.updateValidators();
     this.validateFn = this.getValidateFn();
     this.fieldSubscription = this.field.valueChanges.subscribe((value) => {
@@ -60,6 +69,7 @@ export abstract class BaseFieldComponet implements OnInit, OnChanges, OnDestroy 
   abstract getValidateFn(): ValidatorFn;
   abstract getValidators(): ValidatorFn | ValidatorFn[];
   abstract getErrorMessage(): string;
+  abstract getTranslations(): TranslationObject;
 
   // mandatory for reactive components
   touchedChange: any = () => {};
