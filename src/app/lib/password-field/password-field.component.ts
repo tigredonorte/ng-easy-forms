@@ -3,7 +3,13 @@ import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn, Validators 
 import { keys } from 'ramda';
 
 import { BaseFieldComponet } from '../reusable/base-field.component';
-import { PasswordConfigInterface, PasswordConfigType, passwordConfig } from './password.model';
+import {
+  passwordConfig,
+  PasswordConfigInterface,
+  PasswordConfigType,
+  PasswordTranslationObject,
+  passwordTranslations
+} from './password.model';
 
 @Component({
   selector: 'app-password-field',
@@ -29,16 +35,16 @@ export class PasswordFieldComponent extends BaseFieldComponet implements OnInit,
 
   getErrorMessage(): string {
     if (this.field.hasError('required')) {
-      return 'Você deve digitar uma senha';
+      return this.translations.required;
     }
     if (this.field.hasError('minlength')) {
       const min = this.field.errors['minlength'].requiredLength;
-      return `Digite no mínimo ${min} caracteres`;
+      return this.translations.minCharacters.replace('${min}', min);
     }
 
     if (this.field.hasError('pattern')) {
       const data = this.getPasswordData();
-      return data.pattern.msg;
+      return this.translations[this.passwordStrenght];
     }
 
     if (this.field.errors) {
@@ -57,11 +63,15 @@ export class PasswordFieldComponent extends BaseFieldComponet implements OnInit,
     const v = [Validators.required];
     const data = this.getPasswordData();
     v.push(Validators.minLength(data.length));
-    v.push(Validators.pattern(data.pattern.regex));
+    v.push(Validators.pattern(data.pattern));
     return v;
   }
 
   getPasswordData(): PasswordConfigType {
     return this.passwordData[this.passwordStrenght] ? this.passwordData[this.passwordStrenght] : this.passwordData.high;
+  }
+
+  getTranslations(): PasswordTranslationObject {
+    return passwordTranslations;
   }
 }

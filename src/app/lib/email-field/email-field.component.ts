@@ -2,6 +2,7 @@ import { Component, forwardRef } from '@angular/core';
 import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn, Validators } from '@angular/forms';
 
 import { BaseFieldComponet } from '../reusable/base-field.component';
+import { EmailTranslationObject, emailTranslations } from './email-field.model';
 
 @Component({
   selector: 'app-email-field',
@@ -19,7 +20,7 @@ export class EmailFieldComponent extends BaseFieldComponet {
   }
 
   getErrorMessage() {
-    return this.field.hasError('required') ? 'You must enter a value' : this.field.hasError('email') ? 'Not a valid email' : '';
+    return this.field.hasError('required') ? this.translations.required : this.field.hasError('email') ?  this.translations.invalid : '';
   }
 
   getValidateFn(): ValidatorFn {
@@ -30,5 +31,9 @@ export class EmailFieldComponent extends BaseFieldComponet {
 
   getValidators(): ValidatorFn | ValidatorFn[] {
     return [Validators.required, Validators.email];
+  }
+
+  getTranslations(): EmailTranslationObject {
+    return emailTranslations;
   }
 }
