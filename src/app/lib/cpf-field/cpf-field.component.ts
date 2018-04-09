@@ -19,7 +19,7 @@ export class CpfFieldComponent extends BaseFieldComponet {
     super();
   }
 
-  getErrorMessage() {
+  getErrorMessage(): string {
     return this.field.invalid ? this.translations.invalidCpf : '';
   }
 

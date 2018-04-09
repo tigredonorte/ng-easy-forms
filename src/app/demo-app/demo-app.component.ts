@@ -1,24 +1,27 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, ElementRef } from '@angular/core';
-
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { DemoRoutes } from '../components/route-data';
 @Component({
   selector: 'app-demo-app',
   templateUrl: './demo-app.component.html',
   styleUrls: ['./demo-app.component.scss']
 })
-export class DemoAppComponent {
+export class DemoAppComponent implements OnInit {
   dark = false;
   title = 'Angular EasyForms Demos';
-  navItems = [
-    { name: 'Cpf Field', route: '/cpf-field' },
-    { name: 'Email Field', route: '/email-field' },
-    { name: 'Password Field', route: '/password-field' },
-    { name: 'Save Button', route: '/save-button' },
-    { name: 'Toggle Field', route: '/toggle-field' }
-  ];
+  navItems = [];
 
   constructor(private _element: ElementRef, private _overlayContainer: OverlayContainer) {}
 
+  ngOnInit() {
+    this.navItems = DemoRoutes.map(data => ({name: this.toTitleCase(data.path.replace(/-g/, ' ')), route: '/' + data.path}));
+  }
+
+  private toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
   toggleFullscreen() {
     const elem = this._element.nativeElement.querySelector('.demo-content');
     if (elem.requestFullscreen) {

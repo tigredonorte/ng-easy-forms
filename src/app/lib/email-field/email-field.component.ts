@@ -19,7 +19,7 @@ export class EmailFieldComponent extends BaseFieldComponet {
     this.required = true;
   }
 
-  getErrorMessage() {
+  getErrorMessage(): string {
     return this.field.hasError('required') ? this.translations.required : this.field.hasError('email') ?  this.translations.invalid : '';
   }
 

@@ -1,4 +1,4 @@
-
+export * from './cep-field';
 export * from './cpf-field';
 export * from './email-field';
 export * from './ng-easy-forms.module';
