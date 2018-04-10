@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./autocomplete-field-demo.component.scss']
 })
 export class AutocompleteFieldDemoComponent implements OnInit {
-
+  model = '';
+  translations = {};
   constructor() { }
 
   ngOnInit() {
