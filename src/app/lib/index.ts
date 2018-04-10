@@ -1,3 +1,4 @@
+export * from './autocomplete-field';
 export * from './cep-field';
 export * from './cpf-field';
 export * from './email-field';
