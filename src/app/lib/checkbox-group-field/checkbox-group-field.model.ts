@@ -6,4 +6,8 @@ export interface CheckboxGroupDataObject extends BaseOptions {
   checked?: boolean;
 }
 
-export type CheckboxGroupType = CheckboxGroupDataObject[] | string[];
+export type CheckboxGroupType = CheckboxGroupDataObject | string;
+
+export interface CheckedObject {
+  [s: string]: boolean;
+}

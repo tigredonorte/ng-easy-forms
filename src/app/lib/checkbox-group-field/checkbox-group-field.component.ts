@@ -2,7 +2,7 @@ import { Component, forwardRef, Input, OnInit, OnChanges, SimpleChanges } from '
 import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn } from '@angular/forms';
 
 import { BaseFieldComponet, BaseOptions, TranslationObject } from '../reusable/base-field.component';
-import { CheckboxGroupType } from './checkbox-group-field.model';
+import { CheckboxGroupType, CheckedObject } from './checkbox-group-field.model';
 
 @Component({
   selector: 'app-checkbox-group-field',
@@ -15,10 +15,14 @@ import { CheckboxGroupType } from './checkbox-group-field.model';
 })
 export class CheckboxGroupFieldComponent extends BaseFieldComponet implements OnInit, OnChanges {
   private selecteds: CheckboxGroupType[] = [];
-  checked: { [s: string]: boolean } = {};
+  checked: CheckedObject = {};
   @Input() checkboxOptions: CheckboxGroupType[] = [];
   constructor() {
     super();
+  }
+
+  private getItemValue(item: CheckboxGroupType): string {
+    return typeof item === 'string' ? item : item.value;
   }
 
   public ngOnInit() {
@@ -37,27 +41,30 @@ export class CheckboxGroupFieldComponent extends BaseFieldComponet implements On
   ngOnChanges(data: SimpleChanges) {
     super.ngOnChanges(data);
     if (data['checkboxOptions'] && this.checkboxOptions) {
-      const out = {};
+      const out: CheckedObject = {};
       for (let i = 0; i < this.checkboxOptions.length; i++) {
-        out[this.checkboxOptions[i]['value'] || this.checkboxOptions[i]] = false;
+        const index = this.getItemValue(this.checkboxOptions[i]);
+        out[index] = false;
       }
       this.updateChecked(out);
     }
   }
 
-  private updateChecked(out = {}) {
+  private updateChecked(out: CheckedObject = {}) {
     if (!this.selecteds) {
       return;
     }
 
     for (let i = 0; i < this.selecteds.length; i++) {
-      out[this.selecteds[i]['value'] || this.selecteds[i]] = true;
+      const index = this.getItemValue(this.selecteds[i]);
+      out[index] = true;
     }
     this.checked = out;
   }
 
   private addRemoveItemInArray(array: CheckboxGroupType[], data: CheckboxGroupType): CheckboxGroupType[] {
-    const fn = (item) => (data['value'] ? data['value'] === item.value : item === data);
+    const dataValue = this.getItemValue(data);
+    const fn = (item: CheckboxGroupType) => this.getItemValue(item) === dataValue;
     let exists = false;
     let i = 0;
     for (i = 0; i < array.length; i++) {
