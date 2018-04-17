@@ -8,6 +8,7 @@ import { PasswordFieldDemoComponent } from './password-field-demo/password-field
 import { PhoneFieldDemoComponent } from './phone-field-demo/phone-field-demo.component';
 import { SaveButtonDemoComponent } from './save-button-demo/save-button-demo.component';
 import { ToggleFieldDemoComponent } from './toggle-field-demo/toggle-field-demo.component';
+import { RadioGroupFieldDemoComponent } from './radio-group-field-demo/radio-group-field-demo.component';
 export const DemoRoutes = [
   { path: 'autocomplete-field', component: AutocompleteFieldDemoComponent },
   { path: 'cep-field', component: CepFieldDemoComponent },
@@ -15,6 +16,7 @@ export const DemoRoutes = [
   { path: 'email-field', component: EmailFieldDemoComponent },
   { path: 'password-field', component: PasswordFieldDemoComponent },
   { path: 'phone-field', component: PhoneFieldDemoComponent },
+  { path: 'radio-group-field', component: RadioGroupFieldDemoComponent },
   { path: 'toggle-field', component: ToggleFieldDemoComponent },
   { path: 'save-button', component: SaveButtonDemoComponent }
 ];
