@@ -1,15 +1,17 @@
-import { Component, Input } from '@angular/core';
-import { FormControl, ValidatorFn } from '@angular/forms';
+import { Component, forwardRef, Input } from '@angular/core';
+import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidatorFn } from '@angular/forms';
 
 import { BaseFieldComponet, BaseOptions, TranslationObject } from '../reusable/base-field.component';
-import { getBaseProviders } from '../reusable/base-providers';
 import { RadioGroupDataObject } from './radio-group-field.model';
 
 @Component({
   selector: 'app-radio-group-field',
   templateUrl: './radio-group-field.component.html',
   styleUrls: ['./radio-group-field.component.scss'],
-  providers: getBaseProviders(RadioGroupFieldComponent)
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => RadioGroupFieldComponent), multi: true },
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => RadioGroupFieldComponent), multi: true }
+  ]
 })
 export class RadioGroupFieldComponent extends BaseFieldComponet {
   @Input() radioOptions: RadioGroupDataObject[] = [];
@@ -17,7 +19,7 @@ export class RadioGroupFieldComponent extends BaseFieldComponet {
     super();
   }
 
-  radioChange(data) {
+  radioChange(data: RadioGroupDataObject) {
     this.field.setValue(data);
   }
 
