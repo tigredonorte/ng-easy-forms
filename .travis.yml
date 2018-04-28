@@ -6,7 +6,6 @@ sudo: required
 addons:
   chrome: stable
 env:
-- NG_VERSION=4 TS_VERSION=2.3.4 MAT_VERSION=2.0.0-beta.12
 - NG_VERSION=5 TS_VERSION=2.5.3 MAT_VERSION=5
 before_install:
 - export DISPLAY=:99.0
