@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CepFieldComponent } from './cep-field.component';
+import { CepFieldModule } from './cep-field.module';
 
 describe('CepFieldComponent', () => {
   let component: CepFieldComponent;
@@ -8,7 +10,7 @@ describe('CepFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CepFieldComponent ]
+      imports: [NoopAnimationsModule, CepFieldModule]
     })
     .compileComponents();
   }));

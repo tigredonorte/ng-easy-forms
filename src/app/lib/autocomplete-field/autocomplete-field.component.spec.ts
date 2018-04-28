@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AutocompleteFieldComponent } from './autocomplete-field.component';
+import { AutocompleteFieldModule } from './autocomplete-field.module';
 
 describe('AutocompleteFieldComponent', () => {
   let component: AutocompleteFieldComponent;
@@ -8,9 +10,8 @@ describe('AutocompleteFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutocompleteFieldComponent ]
-    })
-    .compileComponents();
+      imports: [AutocompleteFieldModule, NoopAnimationsModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
